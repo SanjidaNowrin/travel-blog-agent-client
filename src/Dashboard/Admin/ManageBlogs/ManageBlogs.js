@@ -4,14 +4,14 @@ import { Table } from "react-bootstrap";
 
 const ManageBlogs = () => {
   const [event, setEvent] = useState([]);
-
+  const [reload, setReload] = useState(true);
   const [control, setConrol] = useState(false);
 
   useEffect(() => {
     fetch("http://localhost:5000/allBlogs")
       .then((res) => res.json())
       .then((data) => setEvent(data));
-  }, [control]);
+  }, [control, reload]);
 
   const handleDelete = (id) => {
     fetch(`http://localhost:5000/deleteBlogs/${id}`, {
@@ -29,10 +29,25 @@ const ManageBlogs = () => {
       });
     console.log(id);
   };
+  // update status
+  function confirmHandler(id) {
+    const confirmation = window.confirm("are you sure to confirm!!");
+    if (confirmation) {
+      fetch(`http://localhost:5000/userBlog/${id}`, {
+        method: "put",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.modifiedCount === 1) {
+            setReload(!reload);
+          }
+        });
+    }
+  }
   return (
     <div className="container">
-      <h1 className="mt-4 mb-5 text-center" style={{ color: "#895E40" }}>
-        All Booking {event?.length}
+      <h1 className="mt-3 mb-5 text-center" style={{ color: "#565454" }}>
+        All Blogs: {event?.length}
       </h1>
       <Table
         striped
@@ -44,8 +59,10 @@ const ManageBlogs = () => {
           <tr>
             <th>#</th>
             <th>Title</th>
+            <th>Image</th>
             <th>Destination description</th>
-            <th>Image Link</th>
+            <th>Current Status</th>
+            <th>Update</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -54,15 +71,35 @@ const ManageBlogs = () => {
             <tr>
               <td>{index}</td>
               <td>{pd.name}</td>
-              <td>{pd.expense}</td>
-              <td>{pd.img}</td>
-              <button
-                onClick={() => handleDelete(pd._id)}
-                className="p-2 mt-2 text-white ms-2 btn me-2"
-                style={{ backgroundColor: "#895E40" }}
-              >
-                Delete
-              </button>
+
+              <td>
+                <img
+                  width="100%"
+                  style={{
+                    width: "6rem",
+                    height: "6rem",
+                    borderRadius: "50%",
+                    margin: "auto",
+                    marginTop: "15px",
+                  }}
+                  src={pd.img}
+                  alt=""
+                />
+              </td>
+              <td>{pd.desc}</td>
+              <td>{pd.status}</td>
+              <td>
+                <i
+                  className="fas fa-edit fa-2xl"
+                  onClick={() => confirmHandler(pd._id)}
+                ></i>
+              </td>
+              <td>
+                <i
+                  className="fas fa-trash-alt fa-2xl"
+                  onClick={() => handleDelete(pd._id)}
+                ></i>
+              </td>
             </tr>
           </tbody>
         ))}

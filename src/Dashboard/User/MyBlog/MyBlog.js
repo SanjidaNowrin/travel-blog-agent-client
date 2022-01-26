@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "./../../../hooks/useAuth";
-const AddBlog = () => {
+const MyBlog = () => {
   const { allContext } = useAuth();
   const { user } = allContext;
   const {
@@ -11,11 +11,14 @@ const AddBlog = () => {
   } = useForm();
 
   const onSubmit = (data, e) => {
-    data.email = user?.email;
-    fetch("http://localhost:5000/addBlog", {
+    const newData = { ...data };
+    // console.log(newData);
+    newData.status = "pending";
+    newData.email = user?.email;
+    fetch("http://localhost:5000/writeBlog", {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify(data),
+      body: JSON.stringify(newData),
     })
       .then((res) => res.json())
       .then((result) => console.log(result));
@@ -29,7 +32,7 @@ const AddBlog = () => {
         Add New Blog
       </h1>
       <div lassName="mt-0 col-md-6">
-        <div className="p-3 m-auto mt-3 mb-5 rounded shadow login-box w-75 bg-body">
+        <div className="p-3 m-auto mt-5 mb-5 rounded shadow login-box w-75 bg-body">
           <div className="border border-0 event-box d-flex justify-content-center align-items-center">
             <div className="mt-3 login-form">
               <form onSubmit={handleSubmit(onSubmit)}>
@@ -38,6 +41,7 @@ const AddBlog = () => {
                   placeholder="name"
                   className="p-3 m-2 w-100"
                 />
+
                 <input
                   {...register("desc")}
                   placeholder="Description"
@@ -47,9 +51,10 @@ const AddBlog = () => {
                 <input
                   {...register("traveler")}
                   placeholder="Traveler Name"
+                  defaultValue={user.displayName}
                   className="p-3 m-2 w-100"
                 />
-                <br />
+
                 <input
                   {...register("expense")}
                   placeholder="Expense"
@@ -61,7 +66,6 @@ const AddBlog = () => {
                   placeholder="Date"
                   className="p-3 m-2 w-100"
                 />
-                <br />
                 <input
                   {...register("location")}
                   placeholder="Location"
@@ -96,7 +100,7 @@ const AddBlog = () => {
                   type="submit"
                   value="Add"
                   className="mt-3 mb-3 btn w-25"
-                  style={{ backgroundColor: "#565454", color: "white" }}
+                  style={{ backgroundColor: "#00BCD9", color: "white" }}
                 />
               </form>
             </div>
@@ -107,4 +111,4 @@ const AddBlog = () => {
   );
 };
 
-export default AddBlog;
+export default MyBlog;

@@ -7,6 +7,7 @@ import Home from "./Home/Home/Home";
 import PrivateRoute from "./Route/PrivateRoute";
 import Details from "./Home/Details/Details";
 import Dashboard from "./Dashboard/Dashboard/Dashboard";
+import NotFound from "./NotFound/NotFound";
 function App() {
   return (
     <div>
@@ -33,9 +34,9 @@ function App() {
               <Dashboard></Dashboard>
             </PrivateRoute>
 
-            {/*  <Route path="*">
-            <NotFound></NotFound>
-          </Route> */}
+            <Route path="*">
+              <NotFound></NotFound>
+            </Route>
           </Switch>
         </Router>
       </AuthProvider>

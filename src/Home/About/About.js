@@ -6,7 +6,7 @@ import banner3 from "../../assets/images/banner3.jpg";
 const About = () => {
   return (
     <div className="container mt-5">
-      <div className="row g-5">
+      <div className="row g-5 m-0">
         <div className=" col-md-6">
           <div
             id="carouselExampleCaptions"

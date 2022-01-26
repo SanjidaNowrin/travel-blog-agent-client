@@ -20,7 +20,7 @@ const MakeAdmin = () => {
 
   return (
     <div>
-      <h1 style={{ color: "#895E40", textAlign: "center", marginTop: "10px" }}>
+      <h1 style={{ color: "#565454", textAlign: "center", marginTop: "10px" }}>
         Make Admin
       </h1>
       <div className="m-auto mt-5 login-box w-50">
@@ -40,7 +40,7 @@ const MakeAdmin = () => {
                 className="mt-3 border-0 submit-btn btn btn-danger"
                 type="submit"
                 value="Make as Admin"
-                style={{ backgroundColor: "#A07047" }}
+                style={{ backgroundColor: "#565454" }}
               />
             </form>
           </div>

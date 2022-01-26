@@ -9,16 +9,19 @@ import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
 import { NavLink } from "react-router-dom";
 
-import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
-
+import logo from "../../assets/images/logo-color.png";
 import useAuth from "./../../hooks/useAuth";
 import AdminRoute from "./../AdminRoute/AdminRoute";
 import ManageBlogs from "./../Admin/ManageBlogs/ManageBlogs";
 import MakeAdmin from "./../Admin/MakeAdmin/MakeAdmin";
 import AddBlog from "../Admin/AddBlog/AddBlog";
+import AddExperience from "../User/AddExperience/AddExperience";
+import MyBlog from "../User/MyBlog/MyBlog";
+import DashboardHome from "./DashboardHome";
+import WriteBlog from "./../User/WriteBlog/WriteBlog";
 const drawerWidth = 200;
 
 const Dashboard = (props) => {
@@ -35,30 +38,35 @@ const Dashboard = (props) => {
   const drawer = (
     <div>
       <Toolbar />
-      <Divider />
+      <img src={logo} className="img-fluid" alt="" />
+
       <List>
         {!isAdmi && (
           <NavLink
-            to={`${url}/cart`}
+            to={`${url}/myBlogs`}
             style={{
               textDecoration: "none",
               fontSize: "20px",
               color: "black",
             }}
           >
-            <li className="mt-3 ps-3 dashboard-menu">My Orders</li>
+            <li className="mt-3 ps-3 dashboard-menu">
+              <i class="fab fa-blogger me-2"></i>My Blogs
+            </li>
           </NavLink>
         )}
         {!isAdmi && (
           <NavLink
-            to={`${url}/review`}
+            to={`${url}/writeBlog`}
             style={{
               textDecoration: "none",
               fontSize: "20px",
               color: "black",
             }}
           >
-            <li className="mt-3 ps-3 dashboard-menu">Review</li>
+            <li className="mt-4 ps-3 dashboard-menu">
+              <i className="fas fa-feather me-2"></i>Write Blog
+            </li>
           </NavLink>
         )}
 
@@ -105,7 +113,7 @@ const Dashboard = (props) => {
         <div className="text-center">
           <button
             onClick={logOut}
-            style={{ backgroundColor: "#A07047", marginTop: "15px" }}
+            style={{ backgroundColor: "#00BCD9", marginTop: "15px" }}
             className="border-0 btn btn-primary fw-bolder"
           >
             Log Out
@@ -113,7 +121,7 @@ const Dashboard = (props) => {
           <br />
           <button
             style={{
-              backgroundColor: "#A07047",
+              backgroundColor: "#00BCD9",
               marginTop: "20px",
             }}
             className="border-0 btn btn-primary fw-bolder"
@@ -144,17 +152,15 @@ const Dashboard = (props) => {
           ml: { sm: `${drawerWidth}px` },
         }}
       >
-        <Toolbar style={{ backgroundColor: "#A07047" }}>
+        <Toolbar style={{ backgroundColor: "#00BCD9" }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { sm: "none" } }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
+          ></IconButton>
+          <Typography variant="h4" noWrap component="div">
             Dashboard
           </Typography>
         </Toolbar>
@@ -170,7 +176,7 @@ const Dashboard = (props) => {
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true,
           }}
           sx={{
             display: { xs: "block", sm: "none" },
@@ -207,18 +213,15 @@ const Dashboard = (props) => {
         <Toolbar />
 
         <Switch>
-          {/* <Route exact path={path}>
+          <Route exact path={path}>
             <DashboardHome></DashboardHome>
           </Route>
-          <Route exact path={`${path}/cart`}>
-            <Cart></Cart>
+          <Route exact path={`${path}/myBlogs`}>
+            <WriteBlog></WriteBlog>
           </Route>
-          <Route exact path={`${path}/review`}>
-            <AddReview></AddReview>
+          <Route exact path={`${path}/writeBlog`}>
+            <MyBlog></MyBlog>
           </Route>
-          <Route exact path={`${path}/payment/:productId`}>
-            <Payment></Payment>
-          </Route> */}
           <AdminRoute exact path={`${path}/manageBlogs`}>
             <ManageBlogs></ManageBlogs>
           </AdminRoute>
@@ -236,10 +239,6 @@ const Dashboard = (props) => {
 };
 
 Dashboard.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
   window: PropTypes.func,
 };
 

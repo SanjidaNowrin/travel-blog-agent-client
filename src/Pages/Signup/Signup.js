@@ -11,6 +11,8 @@ import {
 import { NavLink } from "react-router-dom";
 import signup from "../../assets/images/signup.png";
 import useAuth from "./../../hooks/useAuth";
+import Header from "./../../Shared/Header/Header";
+import Footer from "./../../Shared/Footer/Footer";
 
 const Signup = () => {
   const { allContext } = useAuth();
@@ -19,6 +21,7 @@ const Signup = () => {
 
   return (
     <div>
+      <Header />
       <div className="container">
         <div className="m-0 mt-5 mb-5 row">
           <div className="col-lg-6 col-sm-12 ">
@@ -26,7 +29,7 @@ const Signup = () => {
           </div>
           <div className="col-lg-6 col-sm-12">
             <div className="p-5 my-4 text-center shadow-lg">
-              <h2 style={{ color: "#895E40" }}>Please Sign Up</h2>
+              <h2 style={{ color: "#565454" }}>Please Sign Up</h2>
               <p className="mt-2 mb-4 " style={{ color: "#895E40" }}>
                 Sign Up with Email & Password
               </p>
@@ -42,7 +45,7 @@ const Signup = () => {
                         <InputGroup.Text>
                           <FontAwesomeIcon
                             icon={faUser}
-                            style={{ color: "#895E40" }}
+                            style={{ color: "#565454" }}
                           ></FontAwesomeIcon>
                         </InputGroup.Text>
                         <FormControl
@@ -65,7 +68,7 @@ const Signup = () => {
                         <InputGroup.Text>
                           <FontAwesomeIcon
                             icon={faEnvelope}
-                            style={{ color: "#895E40" }}
+                            style={{ color: "#565454" }}
                           ></FontAwesomeIcon>
                         </InputGroup.Text>
                         <FormControl
@@ -88,7 +91,7 @@ const Signup = () => {
                         <InputGroup.Text>
                           <FontAwesomeIcon
                             icon={faLock}
-                            style={{ color: "#895E40" }}
+                            style={{ color: "#565454" }}
                           ></FontAwesomeIcon>
                         </InputGroup.Text>
                         <FormControl
@@ -111,7 +114,7 @@ const Signup = () => {
                         <InputGroup.Text>
                           <FontAwesomeIcon
                             icon={faLink}
-                            style={{ color: "#895E40" }}
+                            style={{ color: "#565454" }}
                           ></FontAwesomeIcon>
                         </InputGroup.Text>
                         <FormControl
@@ -128,7 +131,7 @@ const Signup = () => {
                   <button
                     type="submit"
                     className="mt-2 border-0 btn btn-primary w-100"
-                    style={{ backgroundColor: "#895E40" }}
+                    style={{ backgroundColor: "#565454" }}
                   >
                     Sign up
                   </button>
@@ -143,6 +146,7 @@ const Signup = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

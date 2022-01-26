@@ -25,3 +25,19 @@
   cursor: pointer;
   border-radius: 16px;
 }
+/* pagination button */
+.pagination {
+  margin: 30px;
+}
+.pagination button {
+  padding: 20px;
+  margin-right: 20px;
+  border: 0;
+}
+.pagination .selected {
+  background-color: #00bcd9;
+  color: white;
+}
+.navBg {
+  margin: 0 auto;
+}
