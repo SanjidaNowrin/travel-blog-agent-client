@@ -1,0 +1,74 @@
+[
+   { 
+    "name":"A weekend in London",
+   "img":"https://i.ibb.co/LkkhTRt/destination-london-07-800x533.jpg",
+    "date":"20 April,2022",
+    "expense":"$200",
+    "location":"London",
+    "rating":"4"
+},
+   { 
+    "name":"Thrilling New York",
+    "img":"https://i.ibb.co/wcGkf3Y/destination-new-york-01-800x533.jpg",
+    "date":"20 April,2022",
+    "expense":"$200",
+    "location":"London",
+    "rating":"4.5"
+},
+   { 
+    "name":"Big in Japan",
+    "img":"https://i.ibb.co/TcrFGXp/japan-01-800x533.jpg",
+    "date":"20 April,2022",
+    "expense":"$200",
+    "location":"London",
+    "rating":"5"
+},
+   { 
+    "name":"Trip to Ancient Rome",
+    "img":"https://i.ibb.co/CKDyXJK/rome-01-800x533.jpg",
+    "date":"20 April,2022",
+    "expense":"$200",
+    "location":"London",
+    "rating":"3.4"
+},
+   { 
+    "name":"Faraway Sydney",
+    "img":"https://i.ibb.co/TgjpM0t/destination-sydney-08-800x533.jpg",
+    "date":"20 April,2022",
+    "expense":"$200",
+    "location":"London",
+    "rating":"4.8"
+},
+   { 
+    "name":"Colorful Berlin",
+    "img":"https://i.ibb.co/7QkB0rk/destination-berlin-07-800x533.jpg",
+    "date":"20 April,2022",
+    "expense":"$200",
+    "location":"London",
+    "rating":"5"
+},
+   { 
+    "name":"Exciting Belgrade",
+    "img":"https://i.ibb.co/SywhxMh/destination-belgrade-06-800x533.jpg",
+    "date":"20 April,2022",
+    "expense":"$200",
+    "location":"London",
+    "rating":"4.2"
+},
+   { 
+    "name":"A week in Venice",
+    "img":"https://i.ibb.co/px1Xk1W/venice-01-800x533.jpg",
+    "date":"20 April,2022",
+    "expense":"$200",
+    "location":"London",
+    "rating":"4.8"
+},
+   { 
+    "name":"Sunny Barcelona",
+    "img":"https://i.ibb.co/bzKbbVY/destination-barcelona-02-800x533.jpg",
+    "date":"20 April,2022",
+    "expense":"$200",
+    "location":"London",
+    "rating":"4.7"
+}
+]
