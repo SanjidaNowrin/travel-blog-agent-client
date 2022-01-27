@@ -62,11 +62,6 @@ const MyBlog = () => {
                 />
 
                 <input
-                  {...register("date")}
-                  placeholder="Date"
-                  className="p-3 m-2 w-100"
-                />
-                <input
                   {...register("location")}
                   placeholder="Location"
                   className="p-3 m-2 w-100"

@@ -3,8 +3,11 @@ import { Link } from "react-router-dom";
 import "./Blogs.css";
 import Rating from "react-rating";
 const Blog = ({ blog }) => {
-  const { name, img, date, desc, expense, location, category, _id, traveler } =
+  const { name, img, desc, expense, location, category, _id, traveler } =
     blog || {};
+  const today = new Date();
+  let date =
+    today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear();
   return (
     <div className="mt-5 col-lg-4 col-sm-6 gx-5">
       <div

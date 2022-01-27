@@ -59,11 +59,6 @@ const AddBlog = () => {
                   className="p-3 m-2 w-100"
                 />
 
-                <input
-                  {...register("date")}
-                  placeholder="Date"
-                  className="p-3 m-2 w-100"
-                />
                 <br />
                 <input
                   {...register("location")}

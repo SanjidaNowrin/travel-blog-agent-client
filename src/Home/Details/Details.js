@@ -16,9 +16,12 @@ const Details = () => {
     formState: { errors, reset },
   } = useForm();
 
-  var today = new Date(),
-    time =
-      today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  const today = new Date();
+  let date =
+    today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear();
+  let time =
+    today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  // fetch
   useEffect(() => {
     fetch(`https://desolate-depths-37774.herokuapp.com/blog/${id}`)
       .then((res) => res.json())
@@ -71,7 +74,7 @@ const Details = () => {
               className="d-flex justify-content-start fw-bolder mt-2"
               style={{ color: "#565454" }}
             >
-              <h6>{time}</h6> <h6 className="ms-2">{details?.date}</h6>
+              <h6>{time}</h6> <h6 className="ms-2">{date}</h6>
             </div>
             <button className="categoryButton">{details?.category}</button>
             <p className="text-secondary mt-3">{details?.desc}</p>

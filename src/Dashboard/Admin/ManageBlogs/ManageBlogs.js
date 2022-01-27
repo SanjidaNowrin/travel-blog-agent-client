@@ -69,7 +69,7 @@ const ManageBlogs = () => {
         {event?.map((pd, index) => (
           <tbody>
             <tr>
-              <td>{index}</td>
+              <td>{index + 1}</td>
               <td>{pd.name}</td>
 
               <td>
