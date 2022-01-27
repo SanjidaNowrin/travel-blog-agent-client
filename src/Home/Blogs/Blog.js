@@ -9,7 +9,7 @@ const Blog = ({ blog }) => {
     <div className="mt-5 col-lg-4 col-sm-6 gx-5">
       <div
         className="p-3 mb-5 border-0 rounded shadow cardHover card w-100"
-        style={{ background: "#EFEFEF" }}
+        style={{ background: "#FFFFFF" }}
       >
         <img src={img} className="card-img-top" alt="..." />
         <div className="card-body">

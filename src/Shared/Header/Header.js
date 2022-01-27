@@ -38,12 +38,12 @@ const Header = () => {
               <Nav.Link
                 as={NavLink}
                 className=" fw-bolder"
-                to="/moreproducts"
+                to="/categoryBlogs"
                 style={{
                   color: "#565454",
                 }}
               >
-                MORE PRODUCTS
+                ALL BLOGS
               </Nav.Link>
 
               {!user.displayName ? (

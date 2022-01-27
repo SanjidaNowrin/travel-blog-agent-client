@@ -8,6 +8,7 @@ import PrivateRoute from "./Route/PrivateRoute";
 import Details from "./Home/Details/Details";
 import Dashboard from "./Dashboard/Dashboard/Dashboard";
 import NotFound from "./NotFound/NotFound";
+import CategoryBlogs from "./Home/Category/CategoryBlogs";
 function App() {
   return (
     <div>
@@ -19,6 +20,9 @@ function App() {
             </Route>
             <Route path="/home">
               <Home></Home>
+            </Route>
+            <Route path="/categoryBlogs">
+              <CategoryBlogs></CategoryBlogs>
             </Route>
 
             <PrivateRoute path="/details/:id">

@@ -11,11 +11,14 @@ const AddBlog = () => {
   } = useForm();
 
   const onSubmit = (data, e) => {
+    const newData = { ...data };
+    // console.log(newData);
+    newData.status = "Approved";
     data.email = user?.email;
     fetch("http://localhost:5000/addBlog", {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify(data),
+      body: JSON.stringify(newData),
     })
       .then((res) => res.json())
       .then((result) => console.log(result));

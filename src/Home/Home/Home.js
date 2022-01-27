@@ -7,7 +7,7 @@ import Footer from "./../../Shared/Footer/Footer";
 
 const Home = () => {
   return (
-    <div>
+    <div style={{ backgroundColor: "#f7f8fc" }}>
       <Header></Header>
       <About></About>
       <Blogs></Blogs>

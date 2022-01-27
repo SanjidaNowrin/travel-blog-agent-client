@@ -28,10 +28,13 @@
 /* pagination button */
 .pagination {
   margin: 30px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 .pagination button {
   padding: 20px;
-  margin-right: 20px;
+  background-color: rgb(73, 71, 73);
+  margin: 15px;
+  color: white;
   border: 0;
 }
 .pagination .selected {
