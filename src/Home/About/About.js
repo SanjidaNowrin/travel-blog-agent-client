@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import banner1 from "../../assets/images/banner1.jpg";
 import banner2 from "../../assets/images/banner2.jpg";
 import banner3 from "../../assets/images/banner3.jpg";
+import { Button } from "react-bootstrap";
+import { Offcanvas } from "react-bootstrap";
+import TopRated from "./../TopRated/TopRated";
 
 const About = () => {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <div className="container mt-5">
       <div className="row g-5 m-0">
@@ -107,13 +115,29 @@ const About = () => {
             leadership skills after business portals. Globally myocardinate
             interactive supply chains with distinctive quality vectors.
           </p>
-          <button
+          <Button
             style={{ backgroundColor: "#00BCD9" }}
-            className="border-0 btn btn-primary fw-bolder "
+            onClick={handleShow}
+            className="border-0 p-2 btn btn-primary fw-bolder "
           >
             <i className="fas fa-angle-double-right me-1"></i>
-            Learn More
-          </button>
+            Top Places
+          </Button>
+          <Offcanvas show={show} onHide={handleClose}>
+            <Offcanvas.Header closeButton>
+              <Offcanvas.Title>
+                <h1
+                  style={{ color: "#565454" }}
+                  className="container text-center toptitle"
+                >
+                  Top Places
+                </h1>
+              </Offcanvas.Title>
+            </Offcanvas.Header>
+            <Offcanvas.Body>
+              <TopRated />
+            </Offcanvas.Body>
+          </Offcanvas>
         </div>
       </div>
     </div>

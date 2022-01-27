@@ -4,6 +4,7 @@ import Blog from "./Blog";
 import "./Blogs.css";
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
+
   const [page, setPage] = useState(0);
   const [pageCount, setPageCount] = useState(0);
   const size = 10;
@@ -17,12 +18,14 @@ const Blogs = () => {
         setPageCount(pageNumber);
       });
   }, [page]);
+
   return (
     <div>
       <div className="container mt-5 mb-5">
         <h1 style={{ color: "#565454" }} className="container text-center">
           Blogs
         </h1>
+
         {blogs.length === 0 ? (
           <div className="py-5 my-5 text-center">
             <Spinner animation="border" role="status">

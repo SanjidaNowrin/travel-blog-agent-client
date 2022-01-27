@@ -1,245 +1,190 @@
-import * as React from "react";
-import PropTypes from "prop-types";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import CssBaseline from "@mui/material/CssBaseline";
-import Divider from "@mui/material/Divider";
-import Drawer from "@mui/material/Drawer";
-import IconButton from "@mui/material/IconButton";
-import List from "@mui/material/List";
-import { NavLink } from "react-router-dom";
-
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
+import React, { useState } from "react";
+import "./Dashboard.css";
+import { Button, Col, Container, Offcanvas, Row } from "react-bootstrap";
 import logo from "../../assets/images/logo-color.png";
+import { NavLink, Switch, Route, Link, useRouteMatch } from "react-router-dom";
 import useAuth from "./../../hooks/useAuth";
 import AdminRoute from "./../AdminRoute/AdminRoute";
 import ManageBlogs from "./../Admin/ManageBlogs/ManageBlogs";
 import MakeAdmin from "./../Admin/MakeAdmin/MakeAdmin";
 import AddBlog from "../Admin/AddBlog/AddBlog";
-import AddExperience from "../User/AddExperience/AddExperience";
 import MyBlog from "../User/MyBlog/MyBlog";
 import DashboardHome from "./DashboardHome";
 import WriteBlog from "./../User/WriteBlog/WriteBlog";
-const drawerWidth = 200;
-
-const Dashboard = (props) => {
-  const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+const Dashboard = () => {
   let { path, url } = useRouteMatch();
   const { allContext } = useAuth();
-  const { isAdmi, logOut } = allContext;
-  //const { email } = user;
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
+  const { isAdmi, logOut, user } = allContext;
 
-  const drawer = (
-    <div>
-      <Toolbar />
-      <img src={logo} className="img-fluid" alt="" />
+  const [show, setShow] = useState(false);
 
-      <List>
-        {!isAdmi && (
-          <NavLink
-            to={`${url}/myBlogs`}
-            style={{
-              textDecoration: "none",
-              fontSize: "20px",
-              color: "black",
-            }}
-          >
-            <li className="mt-3 ps-3 dashboard-menu">
-              <i class="fab fa-blogger me-2"></i>My Blogs
-            </li>
-          </NavLink>
-        )}
-        {!isAdmi && (
-          <NavLink
-            to={`${url}/writeBlog`}
-            style={{
-              textDecoration: "none",
-              fontSize: "20px",
-              color: "black",
-            }}
-          >
-            <li className="mt-4 ps-3 dashboard-menu">
-              <i className="fas fa-feather me-2"></i>Write Blog
-            </li>
-          </NavLink>
-        )}
-
-        {isAdmi && (
-          <Box>
-            <NavLink
-              to={`${url}/makeAdmin`}
-              style={{
-                textDecoration: "none",
-                fontSize: "20px",
-                color: "black",
-              }}
-            >
-              <li
-                className="mt-3 ps-3 dashboard-menu"
-                style={{ te: "none", color: "black" }}
-              >
-                Make Admin
-              </li>
-            </NavLink>
-            <NavLink
-              to={`${url}/addBlog`}
-              style={{
-                textDecoration: "none",
-                fontSize: "20px",
-                color: "black",
-              }}
-            >
-              <li className="mt-3 ps-3 dashboard-menu">Add Blogs</li>
-            </NavLink>
-
-            <NavLink
-              to={`${url}/manageBlogs`}
-              style={{
-                textDecoration: "none",
-                fontSize: "20px",
-                color: "black",
-              }}
-            >
-              <li className="mt-3 ps-3 dashboard-menu">Manage All Blogs</li>
-            </NavLink>
-          </Box>
-        )}
-        <div className="text-center">
-          <button
-            onClick={logOut}
-            style={{ backgroundColor: "#00BCD9", marginTop: "15px" }}
-            className="border-0 btn btn-primary fw-bolder"
-          >
-            Log Out
-          </button>
-          <br />
-          <button
-            style={{
-              backgroundColor: "#00BCD9",
-              marginTop: "20px",
-            }}
-            className="border-0 btn btn-primary fw-bolder"
-          >
-            <Link
-              className="text-white p-2"
-              to="/home"
-              style={{ textDecoration: "none" }}
-            >
-              Home
-            </Link>
-          </button>
-        </div>
-      </List>
-    </div>
-  );
-
-  const container =
-    window !== undefined ? () => window().document.body : undefined;
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
-    <Box sx={{ display: "flex" }}>
-      <CssBaseline />
-      <AppBar
-        position="fixed"
-        sx={{
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
-          ml: { sm: `${drawerWidth}px` },
-        }}
-      >
-        <Toolbar style={{ backgroundColor: "#00BCD9" }}>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" } }}
-          ></IconButton>
-          <Typography variant="h4" noWrap component="div">
-            Dashboard
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Box
-        component="nav"
-        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
-        aria-label="mailbox folders"
-      >
-        <Drawer
-          container={container}
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true,
-          }}
-          sx={{
-            display: { xs: "block", sm: "none" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: drawerWidth,
-            },
-          }}
-        >
-          {drawer}
-        </Drawer>
-        <Drawer
-          variant="permanent"
-          sx={{
-            display: { xs: "none", sm: "block" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: drawerWidth,
-            },
-          }}
-          open
-        >
-          {drawer}
-        </Drawer>
-      </Box>
-      <Box
-        component="main"
-        sx={{
-          flexGrow: 1,
-          p: 3,
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
-        }}
-      >
-        <Toolbar />
+    <div className="dashboard-area">
+      <Container fluid className="ps-0">
+        <Row className="p-0">
+          <Col lg={2} className="p-0">
+            <div className="side-navbar desktop">
+              <Link to="/" className="logo">
+                <img style={{ width: "120px" }} src={logo} alt="" />
+              </Link>
 
-        <Switch>
-          <Route exact path={path}>
-            <DashboardHome></DashboardHome>
-          </Route>
-          <Route exact path={`${path}/myBlogs`}>
-            <WriteBlog></WriteBlog>
-          </Route>
-          <Route exact path={`${path}/writeBlog`}>
-            <MyBlog></MyBlog>
-          </Route>
-          <AdminRoute exact path={`${path}/manageBlogs`}>
-            <ManageBlogs></ManageBlogs>
-          </AdminRoute>
+              <div className="dashboard-menu">
+                <ul>
+                  {!isAdmi && (
+                    <NavLink
+                      to={`${url}/myBlogs`}
+                      style={{
+                        textDecoration: "none",
+                        fontSize: "20px",
+                        color: "black",
+                      }}
+                    >
+                      <li className="mt-3 ps-3 dashboard-menu">
+                        <i class="fab fa-blogger me-2"></i>My Blogs
+                      </li>
+                    </NavLink>
+                  )}
+                  {!isAdmi && (
+                    <NavLink
+                      to={`${url}/writeBlog`}
+                      style={{
+                        textDecoration: "none",
+                        fontSize: "20px",
+                        color: "black",
+                      }}
+                    >
+                      <li className="mt-4 ps-3 dashboard-menu">
+                        <i className="fas fa-feather me-2"></i>Write Blog
+                      </li>
+                    </NavLink>
+                  )}
 
-          <AdminRoute exact path={`${path}/makeAdmin`}>
-            <MakeAdmin></MakeAdmin>
-          </AdminRoute>
-          <AdminRoute exact path={`${path}/addBlog`}>
-            <AddBlog></AddBlog>
-          </AdminRoute>
-        </Switch>
-      </Box>
-    </Box>
+                  {isAdmi && (
+                    <NavLink
+                      to={`${url}/makeAdmin`}
+                      style={{
+                        textDecoration: "none",
+                        fontSize: "20px",
+                        color: "black",
+                      }}
+                    >
+                      <li
+                        className="mt-3 ps-3 dashboard-menu"
+                        style={{ te: "none", color: "black" }}
+                      >
+                        Make Admin
+                      </li>
+                    </NavLink>
+                  )}
+                  {isAdmi && (
+                    <NavLink
+                      to={`${url}/addBlog`}
+                      style={{
+                        textDecoration: "none",
+                        fontSize: "20px",
+                        color: "black",
+                      }}
+                    >
+                      <li className="mt-3 ps-3 dashboard-menu">Add Blogs</li>
+                    </NavLink>
+                  )}
+                  {isAdmi && (
+                    <NavLink
+                      to={`${url}/manageBlogs`}
+                      style={{
+                        textDecoration: "none",
+                        fontSize: "20px",
+                        color: "black",
+                      }}
+                    >
+                      <li className="mt-3 ps-3 dashboard-menu">
+                        Manage All Blogs
+                      </li>
+                    </NavLink>
+                  )}
+                  <NavLink
+                    className="ms-3"
+                    style={{
+                      textDecoration: "none",
+                      fontSize: "20px",
+                      color: "black",
+                    }}
+                    to="/home"
+                  >
+                    <i class="fas fa-home me-2"></i>
+                    Back To Home
+                  </NavLink>
+                </ul>
+              </div>
+
+              <div className="text-center">
+                <button
+                  onClick={logOut}
+                  style={{ backgroundColor: "#00BCD9", marginTop: "15px" }}
+                  className="border-0 btn btn-primary fw-bolder"
+                >
+                  Log Out
+                </button>
+              </div>
+            </div>
+          </Col>
+          <Col lg={10} className="p-0">
+            <Offcanvas show={show} onHide={handleClose}>
+              <Offcanvas.Header closeButton></Offcanvas.Header>
+              <div className="side-navbar">
+                <Link to="/" className="logo">
+                  <img style={{ width: "120px" }} src={logo} alt="" />
+                </Link>
+
+                <div className="dashboard-menu">
+                  <ul></ul>
+                </div>
+
+                <button className="signin ms-4" onClick={logOut}>
+                  Logout
+                </button>
+              </div>
+            </Offcanvas>
+
+            <div className="dashbord-header d-flex justify-content-between align-items-center">
+              <Button className="dashboard-sm" onClick={handleShow}>
+                {" "}
+                <FontAwesomeIcon icon={faBars} />
+              </Button>
+              <p>Dashboard</p>
+              <span>{user.displayName}</span>
+            </div>
+            <Switch>
+              <Route exact path={path}>
+                <DashboardHome></DashboardHome>
+              </Route>
+              <Route path={`${path}/myBlogs`}>
+                <WriteBlog></WriteBlog>
+              </Route>
+              <Route path={`${path}/writeBlog`}>
+                <MyBlog></MyBlog>
+              </Route>
+              <AdminRoute path={`${path}/manageBlogs`}>
+                <ManageBlogs></ManageBlogs>
+              </AdminRoute>
+
+              <AdminRoute path={`${path}/makeAdmin`}>
+                <MakeAdmin></MakeAdmin>
+              </AdminRoute>
+              <AdminRoute path={`${path}/addBlog`}>
+                <AddBlog></AddBlog>
+              </AdminRoute>
+            </Switch>
+          </Col>
+        </Row>
+      </Container>
+    </div>
   );
-};
-
-Dashboard.propTypes = {
-  window: PropTypes.func,
 };
 
 export default Dashboard;

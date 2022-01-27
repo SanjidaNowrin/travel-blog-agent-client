@@ -38,7 +38,7 @@ const AddBlog = () => {
               <form onSubmit={handleSubmit(onSubmit)}>
                 <input
                   {...register("name")}
-                  placeholder="name"
+                  placeholder="Title"
                   className="p-3 m-2 w-100"
                 />
                 <input

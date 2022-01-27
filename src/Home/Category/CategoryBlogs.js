@@ -35,7 +35,7 @@ const CategoryBlogs = () => {
               paddingTop: "18px",
             }}
           >
-            Blogs
+            All Blogs
           </h1>
           {/* select section */}
           <div className="container">
