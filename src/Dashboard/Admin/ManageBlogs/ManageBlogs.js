@@ -8,13 +8,13 @@ const ManageBlogs = () => {
   const [control, setConrol] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:5000/allBlogs")
+    fetch("https://desolate-depths-37774.herokuapp.com/allBlogs")
       .then((res) => res.json())
       .then((data) => setEvent(data));
   }, [control, reload]);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/deleteBlogs/${id}`, {
+    fetch(`https://desolate-depths-37774.herokuapp.com/deleteBlogs/${id}`, {
       method: "DELETE",
       headers: { "content-type": "application/json" },
     })
@@ -33,7 +33,7 @@ const ManageBlogs = () => {
   function confirmHandler(id) {
     const confirmation = window.confirm("are you sure to confirm!!");
     if (confirmation) {
-      fetch(`http://localhost:5000/userBlog/${id}`, {
+      fetch(`https://desolate-depths-37774.herokuapp.com/userBlog/${id}`, {
         method: "put",
       })
         .then((res) => res.json())

@@ -15,7 +15,7 @@ const AddBlog = () => {
     // console.log(newData);
     newData.status = "Approved";
     data.email = user?.email;
-    fetch("http://localhost:5000/addBlog", {
+    fetch("https://desolate-depths-37774.herokuapp.com/addBlog", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(newData),

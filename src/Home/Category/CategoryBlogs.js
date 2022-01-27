@@ -7,7 +7,7 @@ const CategoryBlogs = () => {
   const [allBlog, setAllBlog] = useState([]);
   const [filteredSource, setFilteredSource] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/blogs")
+    fetch("https://desolate-depths-37774.herokuapp.com/blogs")
       .then((res) => res.json())
       .then((data) => {
         setAllBlog(data.blogs);

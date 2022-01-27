@@ -15,7 +15,7 @@ const MyBlog = () => {
     // console.log(newData);
     newData.status = "pending";
     newData.email = user?.email;
-    fetch("http://localhost:5000/writeBlog", {
+    fetch("https://desolate-depths-37774.herokuapp.com/writeBlog", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(newData),

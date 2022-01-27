@@ -59,13 +59,6 @@ const Blog = ({ blog }) => {
               {location}
             </p>
           </div>
-          {/* <Rating
-            style={{ color: "#FF9529", textAlign: "center" }}
-            initialRating={rating}
-            emptySymbol="far fa-star"
-            fullSymbol="fas fa-star"
-            readonly
-          ></Rating> */}
 
           <Link to={`/details/${_id}`}>
             <button className="container details-btn">Read More</button>

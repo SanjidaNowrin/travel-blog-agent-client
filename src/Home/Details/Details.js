@@ -20,13 +20,13 @@ const Details = () => {
     time =
       today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
   useEffect(() => {
-    fetch(`http://localhost:5000/blog/${id}`)
+    fetch(`https://desolate-depths-37774.herokuapp.com/blog/${id}`)
       .then((res) => res.json())
       .then((data) => setDetails(data));
   }, []);
   //comment
   useEffect(() => {
-    fetch(`http://localhost:5000/comment/${id}`)
+    fetch(`https://desolate-depths-37774.herokuapp.com/comment/${id}`)
       .then((res) => res.json())
       .then((data) => setAllComment(data));
   }, [allComment]);
@@ -35,7 +35,7 @@ const Details = () => {
     data["commentAuthor"] = user.displayName;
     data["blogId"] = id;
 
-    fetch("http://localhost:5000/comment", {
+    fetch("https://desolate-depths-37774.herokuapp.com/comment", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),
@@ -46,7 +46,7 @@ const Details = () => {
   };
   // delete comment
   const handleDeleteComment = (id) => {
-    fetch(`http://localhost:5000/comment/${id}`, {
+    fetch(`https://desolate-depths-37774.herokuapp.com/comment/${id}`, {
       method: "DELETE",
     });
   };
