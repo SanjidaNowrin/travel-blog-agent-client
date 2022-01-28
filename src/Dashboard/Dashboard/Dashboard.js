@@ -45,7 +45,7 @@ const Dashboard = () => {
                       }}
                     >
                       <li className="mt-3 ps-3 dashboard-menu">
-                        <i class="fab fa-blogger me-2"></i>My Blogs
+                        <i className="fab fa-blogger me-2"></i>My Blogs
                       </li>
                     </NavLink>
                   )}
@@ -116,7 +116,7 @@ const Dashboard = () => {
                     }}
                     to="/home"
                   >
-                    <i class="fas fa-home me-2"></i>
+                    <i className="fas fa-home me-2"></i>
                     Back To Home
                   </NavLink>
                 </ul>

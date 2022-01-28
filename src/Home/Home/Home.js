@@ -3,14 +3,16 @@ import Header from "../../Shared/Header/Header";
 import About from "../About/About";
 import Blogs from "../Blogs/Blogs";
 import Footer from "./../../Shared/Footer/Footer";
+import QuoteSection from "./../QuoteSection/QuoteSection";
 
 const Home = () => {
   return (
     <div style={{ backgroundColor: "#f7f8fc" }}>
-      <Header></Header>
-      <About></About>
-      <Blogs></Blogs>
-      <Footer></Footer>
+      <Header />
+      <About />
+      <Blogs />
+      <QuoteSection />
+      <Footer />
     </div>
   );
 };

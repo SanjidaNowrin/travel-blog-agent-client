@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "./../../Shared/Header/Header";
 import Footer from "./../../Shared/Footer/Footer";
-import Blog from "./../Blogs/Blog";
+import CategoryBlog from "./CategoryBlog";
 
 const CategoryBlogs = () => {
   const [allBlog, setAllBlog] = useState([]);
@@ -59,7 +59,7 @@ const CategoryBlogs = () => {
           {/* blogs cart section */}
           <div className="row m-0">
             {allBlog?.map((blog) => (
-              <Blog blog={blog} key={blog._id}></Blog>
+              <CategoryBlog blog={blog} key={blog._id}></CategoryBlog>
             ))}
           </div>
         </div>

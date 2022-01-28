@@ -9,10 +9,21 @@ import Details from "./Home/Details/Details";
 import Dashboard from "./Dashboard/Dashboard/Dashboard";
 import NotFound from "./NotFound/NotFound";
 import CategoryBlogs from "./Home/Category/CategoryBlogs";
+import ScrollToTop from "react-scroll-to-top";
+
 function App() {
   return (
     <div>
       <AuthProvider>
+        <ScrollToTop
+          style={{ backgroundColor: "#00BCD9" }}
+          smooth
+          component={
+            <p className="text-orange-500 mt-1 text-white">
+              <i className="fas fa-angle-double-up fa-lg"></i>
+            </p>
+          }
+        />
         <Router>
           <Switch>
             <Route exact path="/">

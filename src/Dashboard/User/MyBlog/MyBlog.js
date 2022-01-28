@@ -9,10 +9,16 @@ const MyBlog = () => {
     handleSubmit,
     formState: { errors, reset },
   } = useForm();
-
+  const today = new Date();
+  let date =
+    today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear();
+  let time =
+    today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
   const onSubmit = (data, e) => {
     const newData = { ...data };
     // console.log(newData);
+    newData.date = date;
+    newData.time = time;
     newData.status = "pending";
     newData.email = user?.email;
     fetch("https://desolate-depths-37774.herokuapp.com/writeBlog", {

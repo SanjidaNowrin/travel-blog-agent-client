@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Spinner } from "react-bootstrap";
 import Blog from "./Blog";
 import "./Blogs.css";
+import TopRated from "./../TopRated/TopRated";
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
 
@@ -20,14 +21,18 @@ const Blogs = () => {
         setPageCount(pageNumber);
       });
   }, [page]);
+  // top ratings
+  const topBlogs = blogs.filter((blog) => 5 == blog.rating);
 
   return (
     <div>
       <div className="container mt-5 mb-5">
-        <h1 style={{ color: "#565454" }} className="container text-center">
+        <h1
+          style={{ color: "#565454" }}
+          className="container text-center topBlog"
+        >
           Blogs
         </h1>
-
         {blogs.length === 0 ? (
           <div className="py-5 my-5 text-center">
             <Spinner animation="border" role="status">
@@ -35,10 +40,23 @@ const Blogs = () => {
             </Spinner>
           </div>
         ) : (
-          <div className="row m-0">
-            {blogs.map((blog) => (
-              <Blog blog={blog} key={blog._id}></Blog>
-            ))}
+          <div className="row m-0 gx-5">
+            <div className="col-md-4">
+              <h3 style={{ color: "#565454" }} className="text-center ">
+                Top Rated Spots
+              </h3>
+              {topBlogs?.map((blog) => (
+                <TopRated key={blog._id} blog={blog} />
+              ))}
+            </div>
+
+            <div className="col-md-8">
+              <div className="row m-0">
+                {blogs.map((blog) => (
+                  <Blog blog={blog} key={blog._id}></Blog>
+                ))}
+              </div>
+            </div>
           </div>
         )}
         {/* pagination start */}

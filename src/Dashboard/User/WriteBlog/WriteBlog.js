@@ -39,7 +39,7 @@ const WriteBlog = () => {
       className="card mt-4 mb-3 border-0 container"
       style={{ backgroundColor: "#EFEFEF" }}
     >
-      <table class="table">
+      <table className="table">
         <thead>
           <tr>
             <th>#</th>

@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Blogs.css";
+import "../Blogs/Blogs.css";
 const Blog = ({ blog }) => {
   const { name, img, desc, date, expense, location, category, _id, traveler } =
     blog || {};
   return (
-    <div className="col-lg-6 col-sm-6 gx-5">
+    <div className="mt-5 col-lg-4 col-sm-6 gx-5">
       <div
         className="p-3 mb-5 border-0 rounded shadow cardHover card w-100"
         style={{ background: "#FFFFFF" }}

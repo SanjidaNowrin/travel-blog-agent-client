@@ -74,7 +74,7 @@ const Footer = () => {
           </div>
           <div className="footer-col">
             <h4>follow us</h4>
-            <div class="social-links">
+            <div className="social-links">
               <a href="#">
                 <i className="fab fa-facebook-f"></i>
               </a>

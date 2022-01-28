@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./About.css";
 import banner1 from "../../assets/images/banner1.jpg";
 import banner2 from "../../assets/images/banner2.jpg";
 import banner3 from "../../assets/images/banner3.jpg";
@@ -21,7 +22,7 @@ const About = () => {
             className="carousel slide"
             data-bs-ride="carousel"
           >
-            <div class="carousel-indicators">
+            <div className="carousel-indicators">
               <button
                 type="button"
                 data-bs-target="#carouselExampleCaptions"
@@ -47,7 +48,7 @@ const About = () => {
               <div className="carousel-item active">
                 <img
                   src={banner3}
-                  class="d-block w-100"
+                  className="d-block w-100"
                   alt="..."
                   height="400px"
                 />
