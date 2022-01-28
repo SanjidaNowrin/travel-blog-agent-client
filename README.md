@@ -11,6 +11,7 @@
 ## Overview
 
 ### . User can sign up and sign in with Email and Password and google sign in.
+### .Top places will be show according to blogs rating.
 
 ### . After sign in user can read blogs and comment in the blog.
 
