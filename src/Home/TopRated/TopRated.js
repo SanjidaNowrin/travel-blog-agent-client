@@ -8,7 +8,7 @@ const TopRated = ({ blog }) => {
   return (
     <div>
       <div
-        className="col-md-12 mt-4 p-2"
+        className="col-md-12 mt-4 p-2 mb-4"
         style={{
           boxShadow: "0 3px 6px rgba(0, 0, 0, 0.2)",
         }}

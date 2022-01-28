@@ -41,7 +41,7 @@ const Blogs = () => {
           </div>
         ) : (
           <div className="row m-0 gx-5">
-            <div className="col-md-4">
+            <div className="col-md-4 ">
               <h3 style={{ color: "#565454" }} className="text-center ">
                 Top Rated Spots
               </h3>

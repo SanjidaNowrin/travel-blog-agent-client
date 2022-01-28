@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "./../../Shared/Header/Header";
 import Footer from "./../../Shared/Footer/Footer";
 import CategoryBlog from "./CategoryBlog";
-
+import { Spinner } from "react-bootstrap";
 const CategoryBlogs = () => {
   const [allBlog, setAllBlog] = useState([]);
   const [filteredSource, setFilteredSource] = useState([]);
@@ -57,11 +57,19 @@ const CategoryBlogs = () => {
           </div>
 
           {/* blogs cart section */}
-          <div className="row m-0">
-            {allBlog?.map((blog) => (
-              <CategoryBlog blog={blog} key={blog._id}></CategoryBlog>
-            ))}
-          </div>
+          {allBlog.length === 0 ? (
+            <div className="py-5 my-5 text-center">
+              <Spinner animation="border" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </Spinner>
+            </div>
+          ) : (
+            <div className="row m-0">
+              {allBlog?.map((blog) => (
+                <CategoryBlog blog={blog} key={blog._id}></CategoryBlog>
+              ))}
+            </div>
+          )}
         </div>
       </div>
       <Footer></Footer>
