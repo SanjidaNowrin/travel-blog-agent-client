@@ -47,7 +47,7 @@ const ManageBlogs = () => {
   return (
     <div className="container">
       <h1 className="mt-3 mb-5 text-center" style={{ color: "#565454" }}>
-        All Blogs: {event?.length}
+        Total Blogs: {event?.length}
       </h1>
       <Table
         striped

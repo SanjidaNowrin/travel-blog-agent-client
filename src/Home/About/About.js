@@ -6,6 +6,7 @@ import banner3 from "../../assets/images/banner3.jpg";
 import { Button } from "react-bootstrap";
 import { Offcanvas } from "react-bootstrap";
 import TopRated from "./../TopRated/TopRated";
+import { Link } from "react-router-dom";
 
 const About = () => {
   const [show, setShow] = useState(false);
@@ -116,29 +117,14 @@ const About = () => {
             leadership skills after business portals. Globally myocardinate
             interactive supply chains with distinctive quality vectors.
           </p>
-          <Button
+          <Link
             style={{ backgroundColor: "#00BCD9" }}
-            onClick={handleShow}
+            to="/categoryBlogs"
             className="border-0 p-2 btn btn-primary fw-bolder "
           >
             <i className="fas fa-angle-double-right me-1"></i>
-            Top Places
-          </Button>
-          <Offcanvas show={show} onHide={handleClose}>
-            <Offcanvas.Header closeButton>
-              <Offcanvas.Title>
-                <h1
-                  style={{ color: "#565454" }}
-                  className="container text-center toptitle"
-                >
-                  Top Places
-                </h1>
-              </Offcanvas.Title>
-            </Offcanvas.Header>
-            <Offcanvas.Body>
-              <TopRated />
-            </Offcanvas.Body>
-          </Offcanvas>
+            Learn More
+          </Link>
         </div>
       </div>
     </div>

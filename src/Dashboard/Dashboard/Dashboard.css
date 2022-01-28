@@ -111,5 +111,8 @@ button.dashboard-sm {
   }
   button.dashboard-sm {
     font-size: 25px;
+    background-color: #00bcd9;
+    text-decoration: none;
+    color: white;
   }
 }

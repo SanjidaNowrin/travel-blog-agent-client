@@ -142,10 +142,104 @@ const Dashboard = () => {
                 </Link>
 
                 <div className="dashboard-menu">
-                  <ul></ul>
+                  <ul>
+                    {!isAdmi && (
+                      <NavLink
+                        to={`${url}/myBlogs`}
+                        style={{
+                          textDecoration: "none",
+                          fontSize: "20px",
+                          color: "black",
+                        }}
+                      >
+                        <li className="mt-3 ps-3 dashboard-menu">
+                          <i className="fab fa-blogger me-2"></i>My Blogs
+                        </li>
+                      </NavLink>
+                    )}
+                    {!isAdmi && (
+                      <NavLink
+                        to={`${url}/writeBlog`}
+                        style={{
+                          textDecoration: "none",
+                          fontSize: "20px",
+                          color: "black",
+                        }}
+                      >
+                        <li className="mt-4 ps-3 dashboard-menu">
+                          <i className="fas fa-feather me-2"></i>Write Blog
+                        </li>
+                      </NavLink>
+                    )}
+
+                    {isAdmi && (
+                      <NavLink
+                        to={`${url}/makeAdmin`}
+                        style={{
+                          textDecoration: "none",
+                          fontSize: "20px",
+                          color: "black",
+                        }}
+                      >
+                        <li
+                          className="mt-3 ps-3 dashboard-menu"
+                          style={{ te: "none", color: "black" }}
+                        >
+                          Make Admin
+                        </li>
+                      </NavLink>
+                    )}
+                    {isAdmi && (
+                      <NavLink
+                        to={`${url}/addBlog`}
+                        style={{
+                          textDecoration: "none",
+                          fontSize: "20px",
+                          color: "black",
+                        }}
+                      >
+                        <li className="mt-3 ps-3 dashboard-menu">Add Blogs</li>
+                      </NavLink>
+                    )}
+                    {isAdmi && (
+                      <NavLink
+                        to={`${url}/manageBlogs`}
+                        style={{
+                          textDecoration: "none",
+                          fontSize: "20px",
+                          color: "black",
+                        }}
+                      >
+                        <li className="mt-3 ps-3 dashboard-menu">
+                          Manage All Blogs
+                        </li>
+                      </NavLink>
+                    )}
+                    <NavLink
+                      className="ms-3"
+                      style={{
+                        textDecoration: "none",
+                        fontSize: "20px",
+                        color: "black",
+                      }}
+                      to="/home"
+                    >
+                      <i className="fas fa-home me-2"></i>
+                      Back To Home
+                    </NavLink>
+                  </ul>
                 </div>
 
-                <button className="signin ms-4" onClick={logOut}>
+                <button
+                  style={{
+                    backgroundColor: "#00BCD9",
+                    marginTop: "15px",
+                    border: "none",
+                    color: "white",
+                  }}
+                  className="signin ms-4"
+                  onClick={logOut}
+                >
                   Logout
                 </button>
               </div>
