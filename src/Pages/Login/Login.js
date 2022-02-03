@@ -2,7 +2,7 @@ import React from "react";
 import { Col, Form, FormControl, InputGroup, Row } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
-import { NavLink, useLocation, useHistory } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import google from "../../assets/images/google.png";
 import login from "../../assets/images/login.png";
 import useAuth from "./../../hooks/useAuth";
@@ -10,7 +10,7 @@ import Header from "./../../Shared/Header/Header";
 import Footer from "./../../Shared/Footer/Footer";
 const Login = () => {
   const { allContext } = useAuth();
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const location = useLocation();
   const redirect = location?.state?.from || "/home";
@@ -45,7 +45,7 @@ const Login = () => {
                     signInWithEmail()
                       .then((result) => {
                         setUser(result.user);
-                        history.push(redirect);
+                        navigate(redirect);
                       })
                       .catch((err) => {
                         setError(err.message);
@@ -121,7 +121,7 @@ const Login = () => {
                     signInWithGoogle()
                       .then((result) => {
                         setUser(result.user);
-                        history.push(redirect);
+                        navigate(redirect);
                       })
                       .catch((err) => {
                         setError(err.message);

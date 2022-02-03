@@ -2,19 +2,12 @@ import React, { useState } from "react";
 import "./Dashboard.css";
 import { Button, Col, Container, Offcanvas, Row } from "react-bootstrap";
 import logo from "../../assets/images/logo-color.png";
-import { NavLink, Switch, Route, Link, useRouteMatch } from "react-router-dom";
+import { NavLink, Link, Outlet } from "react-router-dom";
 import useAuth from "./../../hooks/useAuth";
-import AdminRoute from "./../AdminRoute/AdminRoute";
-import ManageBlogs from "./../Admin/ManageBlogs/ManageBlogs";
-import MakeAdmin from "./../Admin/MakeAdmin/MakeAdmin";
-import AddBlog from "../Admin/AddBlog/AddBlog";
-import MyBlog from "../User/MyBlog/MyBlog";
-import DashboardHome from "./DashboardHome";
-import WriteBlog from "./../User/WriteBlog/WriteBlog";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 const Dashboard = () => {
-  let { path, url } = useRouteMatch();
   const { allContext } = useAuth();
   const { isAdmi, logOut, user } = allContext;
 
@@ -37,7 +30,7 @@ const Dashboard = () => {
                 <ul>
                   {!isAdmi && (
                     <NavLink
-                      to={`${url}/myBlogs`}
+                      to={`/dashboard/myBlogs`}
                       style={{
                         textDecoration: "none",
                         fontSize: "20px",
@@ -51,7 +44,7 @@ const Dashboard = () => {
                   )}
                   {!isAdmi && (
                     <NavLink
-                      to={`${url}/writeBlog`}
+                      to={`/dashboard/writeBlog`}
                       style={{
                         textDecoration: "none",
                         fontSize: "20px",
@@ -66,7 +59,7 @@ const Dashboard = () => {
 
                   {isAdmi && (
                     <NavLink
-                      to={`${url}/makeAdmin`}
+                      to={`/dashboard/makeAdmin`}
                       style={{
                         textDecoration: "none",
                         fontSize: "20px",
@@ -83,7 +76,7 @@ const Dashboard = () => {
                   )}
                   {isAdmi && (
                     <NavLink
-                      to={`${url}/addBlog`}
+                      to={`/dashboard/addBlog`}
                       style={{
                         textDecoration: "none",
                         fontSize: "20px",
@@ -95,7 +88,7 @@ const Dashboard = () => {
                   )}
                   {isAdmi && (
                     <NavLink
-                      to={`${url}/manageBlogs`}
+                      to={`/dashboard/manageBlogs`}
                       style={{
                         textDecoration: "none",
                         fontSize: "20px",
@@ -145,7 +138,7 @@ const Dashboard = () => {
                   <ul>
                     {!isAdmi && (
                       <NavLink
-                        to={`${url}/myBlogs`}
+                        to={`/dashboard/myBlogs`}
                         style={{
                           textDecoration: "none",
                           fontSize: "20px",
@@ -159,7 +152,7 @@ const Dashboard = () => {
                     )}
                     {!isAdmi && (
                       <NavLink
-                        to={`${url}/writeBlog`}
+                        to={`/dashboard/writeBlog`}
                         style={{
                           textDecoration: "none",
                           fontSize: "20px",
@@ -174,7 +167,7 @@ const Dashboard = () => {
 
                     {isAdmi && (
                       <NavLink
-                        to={`${url}/makeAdmin`}
+                        to={`/dashboard/makeAdmin`}
                         style={{
                           textDecoration: "none",
                           fontSize: "20px",
@@ -191,7 +184,7 @@ const Dashboard = () => {
                     )}
                     {isAdmi && (
                       <NavLink
-                        to={`${url}/addBlog`}
+                        to={`/dashboard/addBlog`}
                         style={{
                           textDecoration: "none",
                           fontSize: "20px",
@@ -203,7 +196,7 @@ const Dashboard = () => {
                     )}
                     {isAdmi && (
                       <NavLink
-                        to={`${url}/manageBlogs`}
+                        to={`/dashboard/manageBlogs`}
                         style={{
                           textDecoration: "none",
                           fontSize: "20px",
@@ -247,33 +240,12 @@ const Dashboard = () => {
 
             <div className="dashbord-header d-flex justify-content-between align-items-center">
               <Button className="dashboard-sm" onClick={handleShow}>
-                {" "}
                 <FontAwesomeIcon icon={faBars} />
               </Button>
               <p>Dashboard</p>
               <span>{user.displayName}</span>
             </div>
-            <Switch>
-              <Route exact path={path}>
-                <DashboardHome></DashboardHome>
-              </Route>
-              <Route path={`${path}/myBlogs`}>
-                <WriteBlog></WriteBlog>
-              </Route>
-              <Route path={`${path}/writeBlog`}>
-                <MyBlog></MyBlog>
-              </Route>
-              <AdminRoute path={`${path}/manageBlogs`}>
-                <ManageBlogs></ManageBlogs>
-              </AdminRoute>
-
-              <AdminRoute path={`${path}/makeAdmin`}>
-                <MakeAdmin></MakeAdmin>
-              </AdminRoute>
-              <AdminRoute path={`${path}/addBlog`}>
-                <AddBlog></AddBlog>
-              </AdminRoute>
-            </Switch>
+            <Outlet></Outlet>
           </Col>
         </Row>
       </Container>
