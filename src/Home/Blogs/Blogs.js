@@ -11,7 +11,7 @@ const Blogs = () => {
   const size = 10;
   useEffect(() => {
     fetch(
-      `https://desolate-depths-37774.herokuapp.com/blogs?page=${page}&&size=${size}`
+      `https://travel-blog-d3v3.onrender.com/blogs?page=${page}&&size=${size}`
     )
       .then((res) => res.json())
       .then((data) => {

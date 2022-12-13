@@ -147,9 +147,7 @@ const useFirebase = () => {
   }
   //admin
   useEffect(() => {
-    fetch(
-      `https://desolate-depths-37774.herokuapp.com/checkAdmin/${user?.email}`
-    )
+    fetch(`https://travel-blog-d3v3.onrender.com/checkAdmin/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         if (data[0]?.role === "admin") {
@@ -161,7 +159,7 @@ const useFirebase = () => {
   }, [user?.email]);
 
   const hanldeUserInfoRegister = (email) => {
-    fetch("https://desolate-depths-37774.herokuapp.com/addUserInfo", {
+    fetch("https://travel-blog-d3v3.onrender.com/addUserInfo", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ email }),

@@ -7,7 +7,7 @@ const MakeAdmin = () => {
   const { loading } = useAuth();
 
   const onSubmit = (data) => {
-    fetch("https://desolate-depths-37774.herokuapp.com/makeAdmin", {
+    fetch("https://travel-blog-d3v3.onrender.com/makeAdmin", {
       method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),

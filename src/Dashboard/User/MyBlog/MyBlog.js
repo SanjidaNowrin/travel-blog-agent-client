@@ -21,7 +21,7 @@ const MyBlog = () => {
     newData.time = time;
     newData.status = "pending";
     newData.email = user?.email;
-    fetch("https://desolate-depths-37774.herokuapp.com/writeBlog", {
+    fetch("https://travel-blog-d3v3.onrender.com/writeBlog", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(newData),

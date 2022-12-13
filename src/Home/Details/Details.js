@@ -18,13 +18,13 @@ const Details = () => {
 
   // fetch
   useEffect(() => {
-    fetch(`https://desolate-depths-37774.herokuapp.com/blog/${id}`)
+    fetch(`https://travel-blog-d3v3.onrender.com/blog/${id}`)
       .then((res) => res.json())
       .then((data) => setDetails(data));
   }, []);
   //comment
   useEffect(() => {
-    fetch(`https://desolate-depths-37774.herokuapp.com/comment/${id}`)
+    fetch(`https://travel-blog-d3v3.onrender.com/comment/${id}`)
       .then((res) => res.json())
       .then((data) => setAllComment(data));
   }, [allComment]);
@@ -33,7 +33,7 @@ const Details = () => {
     data["commentAuthor"] = user.displayName;
     data["blogId"] = id;
 
-    fetch("https://desolate-depths-37774.herokuapp.com/comment", {
+    fetch("https://travel-blog-d3v3.onrender.com/comment", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),
@@ -44,7 +44,7 @@ const Details = () => {
   };
   // delete comment
   const handleDeleteComment = (id) => {
-    fetch(`https://desolate-depths-37774.herokuapp.com/comment/${id}`, {
+    fetch(`https://travel-blog-d3v3.onrender.com/comment/${id}`, {
       method: "DELETE",
     });
   };

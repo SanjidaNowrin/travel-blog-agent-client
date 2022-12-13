@@ -21,7 +21,7 @@ const AddBlog = () => {
     newData.date = date;
     newData.time = time;
     data.email = user?.email;
-    fetch("https://desolate-depths-37774.herokuapp.com/addBlog", {
+    fetch("https://travel-blog-d3v3.onrender.com/addBlog", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(newData),

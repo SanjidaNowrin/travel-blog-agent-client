@@ -10,7 +10,7 @@ const WriteBlog = () => {
   const { user } = allContext;
   const { email } = user;
   useEffect(() => {
-    const query = `https://desolate-depths-37774.herokuapp.com/myblog?email=${email}`;
+    const query = `https://travel-blog-d3v3.onrender.com/myblog?email=${email}`;
     fetch(query)
       .then((res) => res.json())
       .then((data) => setCarts(data));
@@ -20,7 +20,7 @@ const WriteBlog = () => {
   const handleDelete = (id) => {
     const confirmation = window.confirm("are you sure to delete?");
     if (confirmation) {
-      fetch(`https://desolate-depths-37774.herokuapp.com/delete/${id}`, {
+      fetch(`https://travel-blog-d3v3.onrender.com/delete/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
