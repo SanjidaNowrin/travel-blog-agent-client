@@ -13,7 +13,7 @@ const CategoryBlogs = () => {
         setAllBlog(data.blogs);
         setFilteredSource(data.blogs);
       });
-  }, []);
+  }, [allBlog]);
   const [catagoryValue, setCatagoryValue] = useState("Select");
   const handleSelect = (event) => {
     setCatagoryValue(event.target.value);

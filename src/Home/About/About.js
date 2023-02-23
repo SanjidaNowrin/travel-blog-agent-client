@@ -3,9 +3,6 @@ import "./About.css";
 import banner1 from "../../assets/images/banner1.jpg";
 import banner2 from "../../assets/images/banner2.jpg";
 import banner3 from "../../assets/images/banner3.jpg";
-import { Button } from "react-bootstrap";
-import { Offcanvas } from "react-bootstrap";
-import TopRated from "./../TopRated/TopRated";
 import { Link } from "react-router-dom";
 
 const About = () => {

@@ -2,7 +2,7 @@
 
 ## Live Website Link [Click Here](https://travel-agent-blog.web.app/)
 
-## Server site Link [Click Here](https://desolate-depths-37774.herokuapp.com/)
+## Server site Link [Click Here](https://travel-blog-d3v3.onrender.com/)
 
 ## Description
 

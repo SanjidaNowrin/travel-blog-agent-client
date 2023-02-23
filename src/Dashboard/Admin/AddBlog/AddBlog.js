@@ -7,7 +7,7 @@ const AddBlog = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors, reset },
+    formState: { errors },
   } = useForm();
   const today = new Date();
   let date =

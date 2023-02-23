@@ -20,7 +20,7 @@ const Blogs = () => {
         const pageNumber = Math.ceil(count / size);
         setPageCount(pageNumber);
       });
-  }, [page]);
+  }, [page, blogs]);
   // top ratings
   const topBlogs = blogs.filter((blog) => 5 == blog.rating);
 
